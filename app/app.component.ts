@@ -15,7 +15,7 @@ import { Keg } from './keg.model';
     ></new-keg>
     <edit-keg
       [childSelectedKeg]="selectedKeg"
-      (doneClickedSender)="finishedEditing()"
+      (finishedEditingSender)="finishedEditing()"
       ></edit-keg>
   </div>
   `
