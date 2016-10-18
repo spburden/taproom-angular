@@ -8,10 +8,15 @@ import { Keg } from './keg.model';
     <h1>Tap Room</h1>
     <keg-list
       [childKegList]="masterKegList"
+      (showEditFormSender)="showEditForm($event)"
     ></keg-list>
     <new-keg
       (newKegSender)="addKeg($event)"
     ></new-keg>
+    <edit-keg
+      [childSelectedKeg]="selectedKeg"
+      (doneClickedSender)="finishedEditing()"
+      ></edit-keg>
   </div>
   `
 })
@@ -25,5 +30,12 @@ export class AppComponent {
   ];
   addKeg(newKegToAdd: Keg) {
     this.masterKegList.push(newKegToAdd);
+  }
+  selectedKeg: Keg = null;
+  showEditForm(clickedKeg: Keg){
+    this.selectedKeg = clickedKeg;
+  }
+  finishedEditing() {
+    this.selectedKeg = null;
   }
 }
