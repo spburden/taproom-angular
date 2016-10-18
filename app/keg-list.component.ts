@@ -14,7 +14,7 @@ import { Keg } from './keg.model';
     </div>
     <div *ngFor="let keg of childKegList | kegVolume:volumeToDisplay">
       <h4>{{ keg.brand }}</h4>
-      <p>ABV: {{ keg.abv }}%</p>
+      <p [ngStyle]="{'color': setColor(keg.abv)}">ABV: {{ keg.abv }}%</p>
       <p>Number of pints left: {{ keg.pints }}</p>
       <keg-sell [keg] = "keg"></keg-sell>
       <button (click)="showEditForm(keg)">Edit</button>
@@ -33,4 +33,13 @@ export class KegListComponent {
   showEditForm(kegToEdit: Keg){
     this.showEditFormSender.emit(kegToEdit);
   }
+
+  setColor(abv){
+    if (abv > 5) {
+      return "red";
+    } else {
+      return "blue";
+    }
+  }
+
 }
