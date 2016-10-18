@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent }   from "./app.component";
 import { NewKegComponent } from './new-keg.component';
 import { KegListComponent } from './keg-list.component';
+import { KegSellComponent } from './keg-sell.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { KegListComponent } from './keg-list.component';
     AppComponent,
     NewKegComponent,
     KegListComponent,
+    KegSellComponent,
   ],
   bootstrap:    [ AppComponent ]
 })
