@@ -16,6 +16,7 @@ import { Keg } from './keg.model';
     <edit-keg
       [childSelectedKeg]="selectedKeg"
       (finishedEditingSender)="finishedEditing()"
+      (deleteKegSender)="deleteKeg()"
       ></edit-keg>
   </div>
   `
@@ -37,5 +38,9 @@ export class AppComponent {
   }
   finishedEditing() {
     this.selectedKeg = null;
+  }
+  deleteKeg() {
+    var indexPosistion = this.masterKegList.indexOf(this.selectedKeg);
+    this.masterKegList.splice((indexPosistion), 1);
   }
 }

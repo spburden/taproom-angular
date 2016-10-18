@@ -14,6 +14,7 @@ import { Keg } from './keg.model';
         <label>Edit Keg ABV:</label>
         <input [(ngModel)]="childSelectedKeg.abv">
         <button (click)="finishedEditing()">Done Editing</button>
+        <button (click)="deleteKeg()">Delete</button>
       </div>
     </div>
   `
@@ -22,7 +23,11 @@ import { Keg } from './keg.model';
 export class EditKegComponent {
   @Input() childSelectedKeg: Keg;
   @Output () finishedEditingSender = new EventEmitter();
+  @Output () deleteKegSender = new EventEmitter();
   finishedEditing() {
     this.finishedEditingSender.emit();
+  }
+  deleteKeg() {
+    this.deleteKegSender.emit();
   }
 }
