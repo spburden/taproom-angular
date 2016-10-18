@@ -1,0 +1,8 @@
+npm install
+bower install
+bower install bootstrap --save
+gulp build
+gulp serve
+
+Troubleshooting
+If the above steps have been completed and there are still errors relating to dependencies, try deleting the node_modules and bower_components folders and then rerunning the npm and bower install commands.
